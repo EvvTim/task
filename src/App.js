@@ -7,6 +7,7 @@ import useReloadData from "./hooks/useReloadData";
 import useStdDeviation from "./hooks/useStdDeviation";
 import useMedian from "./hooks/useMedian";
 import useMean from "./hooks/useMean";
+import calculateMode from "./hooks/calculateMode";
 
 function App() {
     const [data, changeDataHandler, addValue] = useData()
@@ -14,10 +15,11 @@ function App() {
     const stdDeviation = useStdDeviation(reloadData)
     const median = useMedian(reloadData)
     const mean = useMean(reloadData)
+    const mode = calculateMode(reloadData)
 
   return (
       <div className="App">
-        <OutputSection stdDeviation={stdDeviation} median={median} mean={mean}/>
+        <OutputSection stdDeviation={stdDeviation} median={median} mean={mean} mode={mode} />
         <InputSection
             reloadData1234={reloadData1234Handler}
             reloadData4321={reloadData4321Handler}
